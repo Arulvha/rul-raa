@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rara, Mau Jadi Pacarku Gak?</title>
+  <style>
+    body {
+      font-family: 'Comic Sans MS', cursive;
+      text-align: center;
+      background-color: #fffbe7;
+      padding: 40px;
+    }
+
+    h1 {
+      color: #ff6f91;
+    }
+
+    img {
+      width: 200px;
+      border-radius: 20px;
+      margin: 20px 0;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    .btn {
+      padding: 15px 30px;
+      font-size: 18px;
+      margin: 10px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    #yesBtn {
+      background-color: #88e0ef;
+      color: white;
+    }
+
+    #noBtn {
+      background-color: #f67280;
+      color: white;
+      position: relative;
+    }
+
+    #loveSection {
+      display: none;
+    }
+
+    #loveBtn {
+      background-color: #ffb86b;
+      color: white;
+    }
+
+    #result {
+      font-size: 20px;
+      margin-bottom: 20px;
+      color: #ff6f91;
+      font-weight: bold;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Rara, mau jadi pacarku gak? 🥺</h1>
+
+  <img src="https://files.catbox.moe/kcp3kr.png" />
+
+  <!-- Pesan hasil muncul di atas tombol -->
+  <div id="result"></div>
+
+  <div id="buttonSection">
+    <button class="btn" id="yesBtn">Iyaa 🥰</button>
+    <button class="btn" id="noBtn">Engga 😭</button>
+  </div>
+
+  <div id="loveSection">
+    <p><strong>Rara, kalau kamu suka aku, tekan ini ya ❤️</strong></p>
+    <button class="btn" id="loveBtn">❤️ Aku suka kamu ❤️</button>
+  </div>
+
+  <script>
+    const yesBtn = document.getElementById("yesBtn");
+    const noBtn = document.getElementById("noBtn");
+    const loveBtn = document.getElementById("loveBtn");
+    const loveSection = document.getElementById("loveSection");
+    const result = document.getElementById("result");
+
+    yesBtn.addEventListener("click", () => {
+      result.textContent = "Yay!! Sekarang kita jadian, Rara! 💖";
+      result.style.display = "block";
+      loveSection.style.display = "block";
+      noBtn.style.display = "none"; // Tombol "Engga" disembunyikan
+    });
+
+    noBtn.addEventListener("mouseover", () => {
+      const i = Math.floor(Math.random() * 300);
+      const j = Math.floor(Math.random() * 300);
+      noBtn.style.position = "absolute";
+      noBtn.style.top = `${i}px`;
+      noBtn.style.left = `${j}px`;
+    });
+
+    noBtn.addEventListener("click", () => {
+      alert("Yakin nggak mau sama aku, Rara? 😢");
+    });
+
+    loveBtn.addEventListener("click", () => {
+      const yourNumber = "6281934700886"; // Ganti dengan nomor kamu
+      const message = encodeURIComponent("Iya, aku mau jadi pacar kamu ❤️");
+      const waLink = `https://wa.me/${yourNumber}?text=${message}`;
+      window.open(waLink, "_blank");
+    });
+  </script>
+
+</body>
+</html>
